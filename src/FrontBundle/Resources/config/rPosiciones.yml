@@ -1,0 +1,38 @@
+###################### Views ####################################
+
+posiciones_index:
+    path:     /
+    defaults: { _controller: FrontBundle:Posiciones:index }
+
+posiciones_new:
+    path:     /new
+    defaults: { _controller: FrontBundle:Posiciones:new }
+
+posiciones_edit:
+    path:     /edit={id}
+    defaults: { _controller: FrontBundle:Posiciones:edit }
+    methods:  [GET]
+    requirements:
+      id: '\d+'
+    options:
+      expose: true
+
+
+##################### Apis #####################################
+
+
+posiciones_add:
+    path:     /add
+    defaults: { _controller: FrontBundle:Posiciones:add }
+    methods: [POST]
+    options:
+      expose: true
+
+posiciones_upd:
+    path:     /upd={id}
+    defaults: { _controller: FrontBundle:Posiciones:upd }
+    methods:  [PUT]
+    options:
+      expose: true
+    requirements:
+      id: '\d+'

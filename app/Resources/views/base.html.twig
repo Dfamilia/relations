@@ -13,7 +13,7 @@
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ 'bootstrap/css/navbar-top-fixed.css' }}" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/navbar-top-fixed.css') }}" rel="stylesheet">
   </head>
 
   <body>
@@ -52,14 +52,18 @@
       {% endblock %}
     </div>
 
+    {% block javascripts %}
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        {#<script src="{{ asset('jquery-3.3.1.js') }}"></script>#}
+        <script src="{{ asset('bootstrap/js/jquery-3.3.1.min.js') }}"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('jquery-3.3.1.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/jquery-3.3.1.min.js') }}"></script>
-    {#<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>#}
-    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>#}
-    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        {#<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>#}
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>#}
+        <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+  {% endblock %}
   </body>
 </html>

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-10">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="posiciones" class="sr-only" >Posiciones</label>
+                    <input type="text" id="posiciones" class="form-control" placeholder="Posiciones" >
+                </div>
+                &nbsp;  <button class="btn btn-primary" id="Gposicion" >Guardar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+
+        function add(data) {
+            $.ajax
+            ({
+               type:'POST',
+               url:Routing.generate('posiciones_add'),
+               data:JSON.stringify(data),
+               success:function (data) {
+                    alert(JSON.stringify(data));
+               },
+               error: function (data) {
+
+                }
+            });
+        }
+
+        $('#Gposicion').click(function () {
+
+            var posiciones = $('#posiciones').val();
+
+            add({ descripcion : posiciones })
+
+        });
+
+
+    </script>
+{% endblock %}

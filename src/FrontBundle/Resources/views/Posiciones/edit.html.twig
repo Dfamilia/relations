@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ dump(posicion_id, posicion_id.id ) }}
+
+    <div class="row">
+        <div class="col-lg-10">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="hidden" id="posiciones_id" value="{{ posicion_id.id }}">
+                    <label for="posiciones" class="sr-only" >Posiciones</label>
+                    <input type="text" id="posiciones" class="form-control" placeholder="Posiciones" >
+                </div>
+                &nbsp; <a href="{{ path('posiciones_index' ) }}" class="btn btn-danger">Volver</a>
+                &nbsp;  <button class="btn btn-primary" id="Gposicion" >Actualizar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+
+        function add(data) {
+            $.ajax
+            ({
+               type:'POST',
+               url:Routing.generate('posiciones_add', {id: data.id}),
+               data:JSON.stringify(data),
+               success:function (data) {
+                    alert(JSON.stringify(data));
+               },
+               error: function (data) {
+
+                }
+            });
+        }
+
+        $('#Gposicion').click(function () {
+
+            var id = $('#posiciones_id').val();
+            var posiciones = $('#posiciones').val();
+
+            add({ id: id, descripcion : posiciones })
+
+        });
+
+
+    </script>
+{% endblock %}

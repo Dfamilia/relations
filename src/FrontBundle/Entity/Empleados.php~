@@ -128,28 +128,4 @@ class Empleados
     {
         return $this->posicion;
     }
-
-    /**
-     * Set departamento
-     *
-     * @param \FrontBundle\Entity\Departamentos $departamento
-     *
-     * @return Empleados
-     */
-    public function setDepartamento(\FrontBundle\Entity\Departamentos $departamento = null)
-    {
-        $this->departamento = $departamento;
-
-        return $this;
-    }
-
-    /**
-     * Get departamento
-     *
-     * @return \FrontBundle\Entity\Departamentos
-     */
-    public function getDepartamento()
-    {
-        return $this->departamento;
-    }
 }

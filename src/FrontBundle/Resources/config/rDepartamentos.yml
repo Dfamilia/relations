@@ -1,0 +1,7 @@
+
+departamentos_index:
+    path:     /
+    defaults: { _controller: FrontBundle:Departamento:index }
+    methods:  [GET,HEAD]
+    options:
+        expose: true

@@ -1,3 +1,14 @@
+#ruta para index
 front_homepage:
     path:     /
     defaults: { _controller: FrontBundle:Default:index }
+
+#ruta para el router departamento
+front_rdepartamentos:
+    resource: "@FrontBundle/Resources/config/rDepartamentos.yml"
+    prefix:   /departamentos
+
+#ruta para el router posiciones
+front_rposiciones:
+    resource: "@FrontBundle/Resources/config/rPosiciones.yml"
+    prefix:   /posiciones

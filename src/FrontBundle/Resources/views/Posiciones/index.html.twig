@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-10">
+            <a href="{{ path('posiciones_new') }}" class="btn btn-primary">Nuevo</a>
+            <br>
+            <br>
+
+            <table class="table table-bordered ">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Accion</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <td scope="row">1</td>
+                    <td scope="row">asdfasdfasd</td>
+                    <td scope="row">asdf</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
